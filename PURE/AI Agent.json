@@ -1,0 +1,923 @@
+{
+  "name": "AI Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://files.eric.ed.gov/fulltext/ED434874.pdf",
+        "allowUnauthorizedCerts": true,
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "a3da87c2-68b5-4a38-8426-40b08f74c433",
+      "name": "Download PDF",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        -208,
+        16
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        64,
+        -112
+      ],
+      "id": "78da226c-8c10-4946-bd2a-8fbf1500f9c2",
+      "name": "Extract from File1",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-pro",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-pro"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Condense this large training manual PDF {{ $json.text }} into a smaller, more focused PDF of about 10 pages. The output should follow a consistent structure with four sections:\nObjective – Clear and concise learning goal(s).\nTraining Content – This section should contain the full, detailed content of all modules (e.g., definitions, theory explanations, activities, discussion topics, role plays, reflections).\nEach module should be clearly labeled and formatted within this Training Content section. make sure you structure the training content into modules numbered\nThe content should be interactive where applicable, not just bullet-point summaries. Include all practical material, not just structure.\nAssessment – this section should have  the assessments present at the evaluation section at the end.\nDo not add extra sections or headings beyond these four.\nKeep the language clean and professional, and preserve all key learning material in a compact and readable form.\ni need you to make the assessment section like your supposed to test the person and evaluate by asking a series of questions its not like a self review, give updated "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "d3e88a8d-422d-425a-acf2-8b313019816e",
+      "name": "Message a model1",
+      "retryOnFail": true,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "xDZ4f4KyZocB7jRi",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://lbsresourcesandforum.contactnorth.ca/pluginfile.php/824/mod_data/content/3572/2.-Problem-Solving-and-Decision-Making-in-the-Workplace.pdf",
+        "allowUnauthorizedCerts": true,
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "944df778-fe37-4098-a2db-65ffdecc30c6",
+      "name": "Download PDF1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        272,
+        496
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        608,
+        576
+      ],
+      "id": "a50b178e-74e4-437a-873a-9e6b53bba668",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-pro",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-pro"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Condense this large training manual PDF {{ $json.text }} into a smaller, more focused PDF of about 10 pages. The output should follow a consistent structure with four sections:\nObjective – Clear and concise learning goal(s).\nTraining Content – This section should contain the full, detailed content of all modules (e.g., definitions, theory explanations, activities, discussion topics, role plays, reflections).\nEach module should be clearly labeled and formatted within this Training Content section. make sure you structure the training content into modules numbered\nThe content should be interactive where applicable, not just bullet-point summaries. Include all practical material, not just structure.\nAssessment – this section should have  the assessments present at the evaluation section at the end.\nDo not add extra sections or headings beyond these four.\nKeep the language clean and professional, and preserve all key learning material in a compact and readable form.\ni need you to make the assessment section like your supposed to test the person and evaluate by asking a series of questions its not like a self review, give updated "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        928,
+        480
+      ],
+      "id": "4b51c0f4-3e05-4109-a1cc-14ac812f9be3",
+      "name": "Message a model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "xDZ4f4KyZocB7jRi",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6e478346-41b8-4def-88ea-b5018d2a81e4",
+              "name": "urls",
+              "value": "[   \"https://www.dol.gov/sites/dolgov/files/odep/topics/youth/softskills/problem.pdf\",   \"https://www.civilservice.louisiana.gov/files/divisions/Training/Manuals/ProblemSolvingAndDecisionMaking.pdf\",   \"https://cag.gov.in/uploads/media/C-1-STMLeadershipandTeamBuilding-20200601125232.pdf\" ]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "955719ac-5c56-4aa6-b807-9eaf151a9d37",
+      "name": "Set URLs",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        704,
+        384
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "eb5dbe4f-82b7-44f3-b97e-169d6d9de5b2",
+      "name": "Split URLs",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        912,
+        384
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "id": "7fa92e63-fbf6-4e7c-94b3-bb42d1216d21",
+      "name": "Extract Text",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        1312,
+        384
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "value": "models/gemini-2.5-pro",
+          "mode": "list"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Condense this large training manual PDF {{ $json.text }} into a smaller, more focused PDF of about 10 pages..."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3667e379-18a5-4cde-b135-fd9ee25361a7",
+      "name": "Gemini Condense",
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "position": [
+        1504,
+        384
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "functionCode": "const sampleNum = $runIndex + 1;\nreturn [{ json: { data: `\\n\\n==== Sample ${sampleNum} ====\n${$json.message}` } }];"
+      },
+      "id": "63cb9ff2-faa3-4aa3-b33a-6429b4efe19a",
+      "name": "Format Output",
+      "type": "n8n-nodes-base.function",
+      "position": [
+        1808,
+        208
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "7640e402-4a21-4847-a309-3db652e01ea6",
+      "name": "Append to File",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        2064,
+        336
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.urls }}",
+        "options": {}
+      },
+      "id": "dd6ebedf-a9a3-4c9c-9060-8fd085ef4594",
+      "name": "Download PDF2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1120,
+        384
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "1946c549-02f1-4be0-8a6b-99e89ed81e7a",
+      "name": "Set URLs1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1696,
+        864
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "4e49fe44-3410-4b46-a9e0-fb99e1d115d5",
+      "name": "Split URLs1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        1904,
+        864
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.urls }}",
+        "options": {}
+      },
+      "id": "67197f92-0115-4b47-afa8-fbcba7bf9c63",
+      "name": "Download PDF3",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        2112,
+        864
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "id": "161698ee-0e07-46ab-b923-4030efd7e42f",
+      "name": "Extract Text1",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        2304,
+        864
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "value": "models/gemini-2.5-pro",
+          "mode": "list"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Condense this large training manual PDF {{ $json.text }} into a smaller, more focused PDF of about 10 pages..."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "98905dfe-299a-4a32-af8f-acfcad09e79f",
+      "name": "Gemini Condense1",
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "position": [
+        2496,
+        864
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "functionCode": "const sampleNum = $runIndex + 1;\nreturn [{ json: { data: `\\n\\n==== Sample ${sampleNum} ====\n${$json.message}` } }];"
+      },
+      "id": "1ca97a10-94ec-4154-8711-ec4bc092ebb0",
+      "name": "Format Output1",
+      "type": "n8n-nodes-base.function",
+      "position": [
+        2800,
+        688
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "language": "javascript"
+      },
+      "id": "9722709f-449b-461c-a59e-2ff40a2a7502",
+      "name": "Append to File1",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        3056,
+        816
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1008,
+        -64
+      ],
+      "id": "dc87b3a3-5d4d-454f-ae45-35269773bacd",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://files.eric.ed.gov/fulltext/ED395149.pdf",
+        "allowUnauthorizedCerts": true,
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "c860a91b-2fef-4e28-8c91-c5de576b794e",
+      "name": "Download PDF4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        -640,
+        -208
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        -416
+      ],
+      "id": "a0a696cc-8fc6-4aca-a2e9-e41d3a883066",
+      "name": "Extract from File2"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-pro",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-pro"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Condense this large training manual PDF {{ $json.text }} into a smaller, more focused PDF of about 10 pages. The output should follow a consistent structure with four sections:\nObjective – Clear and concise learning goal(s).\nTraining Content – This section should contain the full, detailed content of all modules (e.g., definitions, theory explanations, activities, discussion topics, role plays, reflections).\nEach module should be clearly labeled and formatted within this Training Content section. make sure you structure the training content into modules numbered\nThe content should be interactive where applicable, not just bullet-point summaries. Include all practical material, not just structure.\nAssessment – this section should have  the assessments present at the evaluation section at the end.\nDo not add extra sections or headings beyond these four.\nKeep the language clean and professional, and preserve all key learning material in a compact and readable form.\ni need you to make the assessment section like your supposed to test the person and evaluate by asking a series of questions its not like a self review, give updated "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        -96,
+        -304
+      ],
+      "id": "a302ed7d-28d7-4cb2-aea7-a2f1904262b4",
+      "name": "Message a model2",
+      "retryOnFail": true,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "xDZ4f4KyZocB7jRi",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://files.eric.ed.gov/fulltext/ED405011.pdf",
+        "allowUnauthorizedCerts": true,
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "f923ec1b-d147-439f-a0ba-6570fb179dd4",
+      "name": "Download PDF5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        -1584,
+        -336
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -1424,
+        -544
+      ],
+      "id": "08e1ef46-1827-4984-842c-858642eca584",
+      "name": "Extract from File3"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-pro",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-pro"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Condense this large training manual PDF {{ $json.text }} into a smaller, more focused PDF of about 10 pages. The output should follow a consistent structure with four sections:\nObjective – Clear and concise learning goal(s).\nTraining Content – This section should contain the full, detailed content of all modules (e.g., definitions, theory explanations, activities, discussion topics, role plays, reflections).\nEach module should be clearly labeled and formatted within this Training Content section. make sure you structure the training content into modules numbered\nThe content should be interactive where applicable, not just bullet-point summaries. Include all practical material, not just structure.\nAssessment – this section should have  the assessments present at the evaluation section at the end.\nDo not add extra sections or headings beyond these four.\nKeep the language clean and professional, and preserve all key learning material in a compact and readable form.\ni need you to make the assessment section like your supposed to test the person and evaluate by asking a series of questions its not like a self review, give updated "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        -1040,
+        -432
+      ],
+      "id": "da771ed8-d6a1-47f3-8b5c-b25175788dfc",
+      "name": "Message a model3",
+      "retryOnFail": true,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "xDZ4f4KyZocB7jRi",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://files.eric.ed.gov/fulltext/ED462882.pdf",
+        "allowUnauthorizedCerts": true,
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "3f63fa0f-3075-4038-81a6-30cfd0e781ba",
+      "name": "Download PDF6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        -1344,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -1184,
+        224
+      ],
+      "id": "7cdd5ef2-045f-44d5-b7e0-9d9db8cea3be",
+      "name": "Extract from File4",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-pro",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-pro"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Condense this large training manual PDF {{ $json.text }} into a smaller, more focused PDF of about 10 pages. The output should follow a consistent structure with four sections:\nObjective – Clear and concise learning goal(s).\nTraining Content – This section should contain the full, detailed content of all modules (e.g., definitions, theory explanations, activities, discussion topics, role plays, reflections).\nEach module should be clearly labeled and formatted within this Training Content section. make sure you structure the training content into modules numbered\nThe content should be interactive where applicable, not just bullet-point summaries. Include all practical material, not just structure.\nAssessment – this section should have  the assessments present at the evaluation section at the end.\nDo not add extra sections or headings beyond these four.\nKeep the language clean and professional, and preserve all key learning material in a compact and readable form.\ni need you to make the assessment section like your supposed to test the person and evaluate by asking a series of questions its not like a self review, give updated "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        336
+      ],
+      "id": "5d9ee864-fb47-4a27-9170-981e2f4fb148",
+      "name": "Message a model4",
+      "retryOnFail": true,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "xDZ4f4KyZocB7jRi",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://files.eric.ed.gov/fulltext/ED498501.pdf",
+        "allowUnauthorizedCerts": true,
+        "responseFormat": "file",
+        "options": {}
+      },
+      "id": "4fc45f2a-dca6-4c75-a160-f8ad1890d5bb",
+      "name": "Download PDF7",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        -2400,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -2240,
+        272
+      ],
+      "id": "3e3034d6-21c7-4718-a1aa-29771e93a823",
+      "name": "Extract from File5"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-pro",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-pro"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Condense this large training manual PDF {{ $json.text }} into a smaller, more focused PDF of about 10 pages. The output should follow a consistent structure with four sections:\nObjective – Clear and concise learning goal(s).\nTraining Content – This section should contain the full, detailed content of all modules (e.g., definitions, theory explanations, activities, discussion topics, role plays, reflections).\nEach module should be clearly labeled and formatted within this Training Content section. make sure you structure the training content into modules numbered\nThe content should be interactive where applicable, not just bullet-point summaries. Include all practical material, not just structure.\nAssessment – this section should have  the assessments present at the evaluation section at the end.\nDo not add extra sections or headings beyond these four.\nKeep the language clean and professional, and preserve all key learning material in a compact and readable form.\ni need you to make the assessment section like your supposed to test the person and evaluate by asking a series of questions its not like a self review, give updated "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        -1856,
+        384
+      ],
+      "id": "a7ba70af-dc66-4938-8eb8-2261a32ba4bf",
+      "name": "Message a model5",
+      "retryOnFail": true,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "xDZ4f4KyZocB7jRi",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Download PDF": {
+      "main": [
+        [
+          {
+            "node": "Extract from File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File1": {
+      "main": [
+        [
+          {
+            "node": "Message a model1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download PDF1": {
+      "main": [
+        []
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        []
+      ]
+    },
+    "Set URLs": {
+      "main": [
+        [
+          {
+            "node": "Split URLs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split URLs": {
+      "main": [
+        [
+          {
+            "node": "Download PDF2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Download PDF2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Text": {
+      "main": [
+        [
+          {
+            "node": "Gemini Condense",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini Condense": {
+      "main": [
+        [
+          {
+            "node": "Format Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Output": {
+      "main": [
+        [
+          {
+            "node": "Append to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download PDF2": {
+      "main": [
+        [
+          {
+            "node": "Extract Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set URLs1": {
+      "main": [
+        [
+          {
+            "node": "Split URLs1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split URLs1": {
+      "main": [
+        [
+          {
+            "node": "Download PDF3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Download PDF3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download PDF3": {
+      "main": [
+        [
+          {
+            "node": "Extract Text1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Text1": {
+      "main": [
+        [
+          {
+            "node": "Gemini Condense1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini Condense1": {
+      "main": [
+        [
+          {
+            "node": "Format Output1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Output1": {
+      "main": [
+        [
+          {
+            "node": "Append to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Download PDF",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Download PDF4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Download PDF5",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Download PDF6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Download PDF7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download PDF4": {
+      "main": [
+        [
+          {
+            "node": "Extract from File2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File2": {
+      "main": [
+        [
+          {
+            "node": "Message a model2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download PDF5": {
+      "main": [
+        [
+          {
+            "node": "Extract from File3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File3": {
+      "main": [
+        [
+          {
+            "node": "Message a model3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download PDF6": {
+      "main": [
+        [
+          {
+            "node": "Extract from File4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File4": {
+      "main": [
+        [
+          {
+            "node": "Message a model4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download PDF7": {
+      "main": [
+        [
+          {
+            "node": "Extract from File5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File5": {
+      "main": [
+        [
+          {
+            "node": "Message a model5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "98d44ee9-7f63-4497-9436-db177868df04",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "be4c28b37287541e296ffe3761df92de60f94ead43ad2af281a2682d5d9a0d78"
+  },
+  "id": "ahoMFkiFFbFBuQmB",
+  "tags": []
+}
