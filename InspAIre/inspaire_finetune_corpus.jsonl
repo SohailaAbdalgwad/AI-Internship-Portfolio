@@ -1,0 +1,47 @@
+{
+  "user_prompt": "Teknoloji sektöründeki proje yöneticileri için, 5+ yıl deneyimli, ileri düzey bir 'Liderlik Gelişim Programı' tasarla. Program 5 aylık bir sürece yayılan, içinde 5 günlük yoğunlaştırılmış bir bölüm içeren karma bir yapıda olmalı.",
+  "title": "Leadership Development Program (LDP) for Tech Leaders",
+  "sector": "Leadership & Management Development",
+  "industry_keywords": ["tech leadership", "agile management", "product roadmap", "stakeholder communication", "team motivation"],
+  "format": "Blended learning - 5-day intensive within 5-month journey",
+  "target_audience": "Senior project managers and program managers in the technology sector with over 5 years of management experience.",
+  "competency_level": "Advanced",
+  "learning_objectives": [
+    { "id": "obj_1", "text": "Increase self-awareness and emotional intelligence in high-pressure tech environments" },
+    { "id": "obj_2", "text": "Develop skills to accelerate agile team achievement and foster psychological safety" },
+    { "id": "obj_3", "text": "Build capacity to operate effectively within complex matrix organizations" },
+    { "id": "obj_4", "text": "Learn to identify strategic opportunities in technical challenges and create systemic solutions" },
+    { "id": "obj_5", "text": "Create and communicate a compelling product and team vision to diverse stakeholders" }
+  ],
+  "content_structure": [
+    { "phase": "Phase 1: Pre-work (2 months)", "description": "Online coursework on tech leadership trends, 360-degree feedback assessments, and initial self-reflection.", "addie_stage": "Analysis" },
+    { "phase": "Phase 2: Intensive (5 days)", "description": "In-person sessions covering self-awareness, agile team dynamics, systems thinking, technical problem-solving, and vision setting.", "addie_stage": "Design & Development" },
+    { "phase": "Phase 3: Follow-up (3 months)", "description": "Executive coaching, peer network collaboration on a real-world project, and capstone presentation.", "addie_stage": "Implementation & Evaluation" }
+  ],
+  "training_modules": [
+    {
+      "module_id": "mod_1",
+      "title": "Module 1: The Self-Aware Tech Leader",
+      "slides": [
+        { "slide_id": "s1_1", "title": "Introduction to Behavioral Assessments", "content": "Exploring tools like DiSC and MBTI for self-reflection in a technical context.", "maps_to_objectives": ["obj_1"] },
+        { "slide_id": "s1_2", "title": "Navigating Matrix Organizations", "content": "Understanding systems thinking and stakeholder mapping in tech companies.", "maps_to_objectives": ["obj_3"] }
+      ],
+      "activities": [
+        { "activity_id": "a1_1", "type": "Peer Coaching", "title": "360-Degree Feedback Debrief", "description": "Participants partner up to discuss their feedback results and identify key development areas for leading technical teams.", "maps_to_objectives": ["obj_1", "obj_2"] }
+      ],
+      "assessments": [
+        { "assessment_id": "q1_1", "question": "Case study: A critical project is delayed due to inter-departmental conflict. How would you apply systems thinking to resolve it?", "bloom_level": "Application", "maps_to_objectives": ["obj_3", "obj_4"] }
+      ],
+      "interactive_elements": ["Real-time polling on leadership dilemmas", "VR simulation of a difficult stakeholder meeting"]
+    }
+  ],
+  "reinforcement_plan": [
+    { "timing": "14 days post-training", "activity": "Peer accountability check-in on action plan progress via Slack channel." },
+    { "timing": "30 days post-training", "activity": "AI-driven adaptive quiz on agile leadership principles." }
+  ],
+  "compliance_tags": ["Ethical AI in Management", "DEI in Tech Teams"],
+  "quality_scores": { "objective_clarity": 9, "instructional_design_quality": 9, "assessment_integration": 8, "content_quality_depth": 9, "industry_relevance_practicality": 9, "overall_score": 8.8 },
+  "selection_rationale": "Exemplary program for its comprehensive structure, alignment with Bloom's taxonomy, and strong reinforcement plan tailored for the tech industry.",
+  "key_strengths": ["Comprehensive journey", "Research-based content", "Measures behavior change"],
+  "minor_weaknesses": ["High cost", "Intensive format", "Limited to senior roles"]
+}
