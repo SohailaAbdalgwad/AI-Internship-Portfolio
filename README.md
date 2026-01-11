@@ -1,2 +1,38 @@
 # AI-Internship-Portfolio
-Collection of projects from my AI internships
+- Collection of tasks, projects, and samples from my internships
+- Certificate of completion for each
+# AI & Machine Learning Internship Portfolio
+
+A comprehensive collection of projects and work from my industrial training experiences in AI, ML, and EdTech.
+
+## 📁 Internships 
+
+### [Prodigy InfoTech - Machine Learning Intern](/prodigy-infotech)
+*One-month task-based internship focusing on applied ML concepts*
+- Completed weekly projects with full documentation
+- **Technologies:** Python, Scikit-learn, Pandas, Matplotlib
+
+### [NTI-Huawei - HCIA-AI Certification](/nti-huawei-certification)
+*80-hour professional certification program*
+- Integrated program from the National Telecommunication Institute and Huawei
+- Certified Huawei ICT Associate in Artificial Intelligence
+- **Topics:** ML/DL algorithms, AI development lifecycle, Huawei Ascend AI
+
+### [PURE Research - Turkey](/pure-research-turkey)
+*Two-month On-site international research internship*
+- Developed AI-compatible instructional design datasets (1000+ samples)
+- Built data pipelines for JSONL conversion and validation
+- Conducted prompt engineering and LLM fine-tuning experiments
+- **Technologies:** Python, JSONL, OpenAI API, HuggingFace, PyTorch
+
+### [InspAIre - AI Research Intern](/inspire-startup)
+*1.5-month startup internship in AI-native learning design*
+- Expanded platform dataset with 150+ curated examples
+- Researched RAG systems and text chunking strategies
+- Developed optimized prompt library for instructional design
+- **Technologies:** Python, RAG concepts, vector embeddings, prompt engineering
+
+## 🛠️ Skills Demonstrated
+- Machine Learning • Deep Learning • Data Engineering • NLP
+- Research Methodology • Prompt Engineering • AI Model Evaluation
+- Python • PyTorch • JSONL • Data Pipelines • Git
