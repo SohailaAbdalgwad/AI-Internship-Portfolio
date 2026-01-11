@@ -1,9 +1,6 @@
-# AI-Internship-Portfolio
-- Collection of tasks, projects, and samples from my internships
-- Certificate of completion for each
 # AI & Machine Learning Internship Portfolio
 
-A comprehensive collection of projects and work from my industrial training experiences in AI, ML, and EdTech.
+A comprehensive collection of projects, sample tasks, and work from my industrial training experiences in AI, ML, and EdTech.
 
 ## 📁 Internships 
 
