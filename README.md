@@ -9,20 +9,20 @@ A comprehensive collection of projects, sample tasks, and work from my industria
 - Completed weekly projects with full documentation
 - **Technologies:** Python, Scikit-learn, Pandas, Matplotlib
 
-### [NTI-Huawei Egyptian Talents Academy (ETA) ](/nti-huawei-certification)
+### [NTI-Huawei Egyptian Talents Academy (ETA) ](/nti)
 *80-hour professional certification program*
 - Integrated program from the National Telecommunication Institute and Huawei
 - Certified Huawei ICT Associate in Artificial Intelligence
 - **Topics:** ML/DL algorithms, AI development lifecycle, Huawei Ascend AI
 
-### [PURE Research - Turkey](/pure-research-turkey)
+### [PURE Research - Turkey](/pure)
 *Two-month On-site international research internship*
 - Developed AI-compatible instructional design datasets (1000+ samples)
 - Built data pipelines for JSONL conversion and validation
 - Conducted prompt engineering and LLM fine-tuning experiments
 - **Technologies:** Python, JSONL, OpenAI API, HuggingFace, PyTorch
 
-### [InspAIre - AI Research Intern](/inspire-startup)
+### [InspAIre - AI Research Intern](/inspire)
 *1.5-month startup internship in AI-native learning design*
 - Expanded platform dataset with 150+ curated examples
 - Researched RAG systems and text chunking strategies
