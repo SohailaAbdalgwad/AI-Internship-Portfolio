@@ -9,7 +9,7 @@ A comprehensive collection of projects, sample tasks, and work from my industria
 - Completed weekly projects with full documentation
 - **Technologies:** Python, Scikit-learn, Pandas, Matplotlib
 
-### [NTI-Huawei - HCIA-AI Certification](/nti-huawei-certification)
+### [NTI-Huawei Egyptian Talents Academy (ETA) ](/nti-huawei-certification)
 *80-hour professional certification program*
 - Integrated program from the National Telecommunication Institute and Huawei
 - Certified Huawei ICT Associate in Artificial Intelligence
